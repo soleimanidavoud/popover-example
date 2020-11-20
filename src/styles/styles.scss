@@ -1,0 +1,94 @@
+$background-dark: #000;
+$background-light: #fff;
+$text-dark: #fff;
+$button-text-dark: #000;
+
+@mixin whenDark {
+  html.dark & {
+    @content;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @include whenDark {
+    background-color: $background-dark;
+    color: $text-dark;
+  }
+}
+
+button {
+  border: none;
+  font-size: 16px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 20px;
+  color: white;
+  background-color: black;
+  transition: transform 0.2s;
+
+  @include whenDark {
+    background-color: $background-light;
+    color: $button-text-dark;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+  &:active {
+    transform: scale(0.97);
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100vh;
+  align-content: center;
+  justify-content: center;
+}
+
+.item6 {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 50%;
+}
+
+.item {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.dirColumn {
+  flex-direction: column;
+}
+
+.popover {
+  background-color: black;
+  color: white;
+  font-size: medium;
+  border-radius: 20px;
+  padding: 10px;
+  position: absolute;
+  display: flex;
+
+  @include whenDark {
+    background-color: $background-light;
+    color: $button-text-dark;
+  }
+}
+.homeForm {
+  margin: 20px;
+}
+.popoverContent {
+  padding: 5px;
+}
